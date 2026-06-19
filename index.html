@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Date? ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:20px;
+width:100%;
+max-width:550px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+h1,h2{
+text-align:center;
+color:#ff3f7f;
+margin-bottom:20px;
+}
+
+.question{
+margin:20px 0;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input,select{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ddd;
+font-size:16px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+margin-top:10px;
+}
+
+button{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+}
+
+.yes{
+background:#ff4f87;
+color:white;
+}
+
+.no{
+background:#ddd;
+}
+
+.yes:hover{
+transform:scale(1.05);
+}
+
+.no:hover{
+transform:scale(.95);
+}
+
+.next{
+margin-top:25px;
+width:100%;
+background:#ff4f87;
+color:white;
+}
+
+.hidden{
+display:none;
+}
+
+.invitation{
+background:linear-gradient(135deg,#ff8fb1,#ff5d8f);
+color:white;
+padding:25px;
+border-radius:20px;
+margin-top:20px;
+text-align:center;
+animation:fade 1s;
+}
+
+.invitation h2{
+color:white;
+margin-bottom:15px;
+}
+
+.invitation p{
+font-size:18px;
+margin:10px 0;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💖 A Special Question 💖</h1>
+
+<div id="formSection">
+
+<div class="question">
+<label>Will you be my date? ❤️</label>
+
+<div class="buttons">
+<button class="yes" onclick="accepted()">YES ❤️</button>
+<button class="no" onclick="declined()">NO 😢</button>
+</div>
+</div>
+
+<div id="questions" class="hidden">
+
+<div class="question">
+<label>Select our Date 📅</label>
+<input type="date" id="date">
+</div>
+
+<div class="question">
+<label>Where should we go? 📍</label>
+<select id="place">
+<option>Cafe ☕</option>
+<option>Restaurant 🍽️</option>
+<option>Mall 🛍️</option>
+<option>Somewhere around Delhi NCR 🌆</option>
+<option>Movie 🎬</option>
+<option>Long Drive 🚗</option>
+</select>
+</div>
+
+<div class="question">
+<label>What's your food preference? 🍕</label>
+<select id="food">
+<option>Italian 🍝</option>
+<option>Chinese 🍜</option>
+<option>North Indian 🍛</option>
+<option>South Indian 🥘</option>
+<option>Street Food 🌮</option>
+<option>Desserts 🍰</option>
+</select>
+</div>
+
+<div class="question">
+<label>Which colour dress should I wear for you? 👗</label>
+<select id="dress">
+<option>Red ❤️</option>
+<option>Black 🖤</option>
+<option>Pink 💗</option>
+<option>White 🤍</option>
+<option>Blue 💙</option>
+<option>Lavender 💜</option>
+</select>
+</div>
+
+<button class="next" onclick="showInvitation()">
+Create Our Date Invitation 💌
+</button>
+
+</div>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function accepted(){
+document.getElementById("questions").classList.remove("hidden");
+}
+
+function declined(){
+alert("No isn't really an option 😜❤️ Try YES!");
+}
+
+function showInvitation(){
+
+let date=document.getElementById("date").value;
+
+if(date==""){
+alert("Please select a date ❤️");
+return;
+}
+
+let place=document.getElementById("place").value;
+let food=document.getElementById("food").value;
+let dress=document.getElementById("dress").value;
+
+document.getElementById("formSection").style.display="none";
+
+document.getElementById("result").innerHTML=`
+<div class="invitation">
+
+<h2>💌 You're Officially Invited 💌</h2>
+
+<p>Dear Love ❤️</p>
+
+<p>Thank you for saying <b>YES!</b></p>
+
+<p>📅 <b>Date:</b> ${date}</p>
+
+<p>📍 <b>Place:</b> ${place}</p>
+
+<p>🍽️ <b>Food:</b> ${food}</p>
+
+<p>👗 <b>I'll wear:</b> ${dress}</p>
+
+<br>
+
+<p>
+I can't wait to spend this beautiful day with you,
+laugh together, eat together and make unforgettable memories. ❤️
+</p>
+
+<h2>See You Soon! 💖</h2>
+
+</div>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
